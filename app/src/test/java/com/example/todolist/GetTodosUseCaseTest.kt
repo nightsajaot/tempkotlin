@@ -9,7 +9,6 @@ import org.junit.Test
 
 class GetTodosUseCaseTest {
 
-    // Фейковый репозиторий для unit-теста (без Android Context)
     private class FakeTodoRepository : TodoRepository {
 
         private val items = mutableListOf(
@@ -32,14 +31,11 @@ class GetTodosUseCaseTest {
 
     @Test
     fun `GetTodosUseCase returns 3 todos`() = runTest {
-        // arrange
         val repository = FakeTodoRepository()
         val useCase = GetTodosUseCase(repository)
 
-        // act
         val result = useCase()
 
-        // assert
         assertEquals(3, result.size)
     }
 }

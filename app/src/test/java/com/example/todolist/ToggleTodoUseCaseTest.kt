@@ -10,7 +10,6 @@ import org.junit.Test
 
 class ToggleTodoUseCaseTest {
 
-    // Фейковый репозиторий для unit-теста (без Android Context)
     private class FakeTodoRepository : TodoRepository {
 
         private val items = mutableListOf(
@@ -33,18 +32,15 @@ class ToggleTodoUseCaseTest {
 
     @Test
     fun `ToggleTodoUseCase toggles isCompleted`() = runTest {
-        // arrange
         val repository = FakeTodoRepository()
         val toggleUseCase = ToggleTodoUseCase(repository)
         val getTodosUseCase = GetTodosUseCase(repository)
 
         val before = getTodosUseCase().first { it.id == 1 }.isCompleted
 
-        // act
         toggleUseCase(1)
         val after = getTodosUseCase().first { it.id == 1 }.isCompleted
 
-        // assert
         assertEquals(!before, after)
     }
 }

@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.todolist.domain.usecase.GetTodosUseCase
 import com.example.todolist.domain.usecase.ToggleTodoUseCase
 
-// Фабрика для создания ViewModel (без DI-фреймворков)
 class TodoViewModelFactory(
     private val getTodosUseCase: GetTodosUseCase,
     private val toggleTodoUseCase: ToggleTodoUseCase

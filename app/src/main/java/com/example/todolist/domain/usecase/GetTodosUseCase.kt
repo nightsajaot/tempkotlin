@@ -3,7 +3,6 @@ package com.example.todolist.domain.usecase
 import com.example.todolist.domain.model.TodoItem
 import com.example.todolist.domain.repository.TodoRepository
 
-// UseCase: получить список задач
 class GetTodosUseCase(
     private val repository: TodoRepository
 ) {

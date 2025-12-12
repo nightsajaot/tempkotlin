@@ -10,7 +10,6 @@ import com.example.todolist.presentation.ui.screen.TodoDetailScreen
 import com.example.todolist.presentation.ui.screen.TodoListScreen
 import com.example.todolist.presentation.viewmodel.TodoViewModel
 
-// NavHost: два экрана (List и Detail)
 @Composable
 fun AppNavGraph(
     navController: NavHostController,

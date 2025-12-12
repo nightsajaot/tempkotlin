@@ -13,7 +13,6 @@ import androidx.compose.ui.unit.dp
 import com.example.todolist.presentation.viewmodel.TodoUiState
 import com.example.todolist.presentation.viewmodel.TodoViewModel
 
-// Экран деталей задачи
 @Composable
 fun TodoDetailScreen(
     viewModel: TodoViewModel,

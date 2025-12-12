@@ -7,19 +7,15 @@ import com.example.todolist.domain.repository.TodoRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-// Репозиторий-заглушка: грузит из JSON один раз и хранит в памяти
 class TodoRepositoryImpl(
     private val dataSource: TodoJsonDataSource
 ) : TodoRepository {
 
-    // Локальное хранилище в памяти (для toggle без базы)
     private var cached: MutableList<TodoItemDto>? = null
 
     override suspend fun getTodos(): List<TodoItem> = withContext(Dispatchers.IO) {
-        // Если ещё не загружали — читаем JSON и кешируем
         val list = cached ?: dataSource.getTodos().toMutableList().also { cached = it }
 
-        // Маппинг DTO -> Domain
         list.map { it.toDomain() }
     }
 
@@ -33,7 +29,6 @@ class TodoRepositoryImpl(
         }
     }
 
-    // Маппер DTO -> Domain
     private fun TodoItemDto.toDomain(): TodoItem {
         return TodoItem(
             id = id,

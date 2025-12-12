@@ -14,7 +14,6 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import com.example.todolist.domain.model.TodoItem
 
-// UI-компонент строки задачи: текст + чекбокс
 @Composable
 fun TodoItemRow(
     item: TodoItem,
@@ -24,14 +23,14 @@ fun TodoItemRow(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .testTag("todo_row_${item.id}") // Тег для UI-теста строки
+            .testTag("todo_row_${item.id}")
             .clickable { onClick() }
             .padding(12.dp)
     ) {
         Checkbox(
             checked = item.isCompleted,
             onCheckedChange = { onToggle() },
-            modifier = Modifier.testTag("todo_checkbox_${item.id}") // Тег для UI-теста чекбокса
+            modifier = Modifier.testTag("todo_checkbox_${item.id}")
         )
 
         Spacer(modifier = Modifier.width(12.dp))

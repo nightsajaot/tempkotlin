@@ -18,7 +18,6 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Простая ручная "внедрялка" зависимостей (без Hilt/Koin)
         val dataSource = TodoJsonDataSource(applicationContext)
         val repository = TodoRepositoryImpl(dataSource)
 

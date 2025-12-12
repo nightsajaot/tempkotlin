@@ -15,7 +15,6 @@ import com.example.todolist.presentation.ui.component.TodoItemRow
 import com.example.todolist.presentation.viewmodel.TodoUiState
 import com.example.todolist.presentation.viewmodel.TodoViewModel
 
-// Экран списка задач
 @Composable
 fun TodoListScreen(
     viewModel: TodoViewModel,

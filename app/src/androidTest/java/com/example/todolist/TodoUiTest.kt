@@ -25,7 +25,6 @@ class TodoUiTest {
     val rule = createAndroidComposeRule<ComponentActivity>()
 
     private fun buildViewModel(activity: ComponentActivity): TodoViewModel {
-        // Собираем зависимости так же, как в MainActivity (без DI)
         val dataSource = TodoJsonDataSource(activity.applicationContext)
         val repository = TodoRepositoryImpl(dataSource)
 

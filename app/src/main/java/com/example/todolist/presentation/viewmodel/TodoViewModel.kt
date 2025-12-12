@@ -9,7 +9,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-// ViewModel: хранит состояние списка и обрабатывает события
 class TodoViewModel(
     private val getTodosUseCase: GetTodosUseCase,
     private val toggleTodoUseCase: ToggleTodoUseCase
@@ -19,7 +18,6 @@ class TodoViewModel(
     val uiState: StateFlow<TodoUiState> = _uiState.asStateFlow()
 
     init {
-        // Загружаем список при создании ViewModel
         loadTodos()
     }
 
@@ -39,7 +37,6 @@ class TodoViewModel(
         viewModelScope.launch {
             try {
                 toggleTodoUseCase(id)
-                // После toggle перечитываем список (из кеша репозитория)
                 val items = getTodosUseCase()
                 _uiState.value = TodoUiState.Content(items)
             } catch (e: Exception) {
