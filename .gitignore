@@ -1,0 +1,25 @@
+# === Gradle ===
+.gradle/
+**/build/
+
+# === Local configuration ===
+local.properties
+
+# === IntelliJ / Android Studio ===
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# === MacOS ===
+.DS_Store
+
+# === Generated / Output ===
+captures/
+*.apk
+*.aab
+*.log
+
+# === Native build (если появится) ===
+.cxx/
+externalNativeBuild/
